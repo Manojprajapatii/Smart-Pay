@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/m5"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/profile_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <!-- Back Button -->
+            <ImageView
+                android:id="@+id/back_image"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/m250"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="@dimen/m60"
+                android:contentDescription="back image "
+                android:src="@drawable/profile_background" />
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="back image "
+                android:src="@drawable/arrow_back" />
+
+            <!-- User Profile Image -->
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/m80"
+                android:layout_height="@dimen/m80"
+                android:layout_below="@id/back_button"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="32dp"
+                android:contentDescription="profile image"
+                android:src="@drawable/profile" />
+
+            <!-- Username -->
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/back_button"
+                android:layout_marginTop="@dimen/m20"
+                android:text="Manoj Prajapat"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+            <!-- UPI ID -->
+            <!--    <TextView-->
+            <!--        android:id="@+id/upi_id"-->
+            <!--        android:layout_width="wrap_content"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:layout_below="@id/username"-->
+            <!--        android:layout_marginTop="8dp"-->
+            <!--        android:text="@string/upi_id"-->
+            <!--        android:textSize="16sp" />-->
+
+            <TextView
+                android:id="@+id/upi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/username"
+                android:layout_marginTop="8dp"
+                android:text="@string/upi"
+                android:textSize="16sp" />
+            <!-- Number -->
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upi"
+                android:layout_marginTop="@dimen/m15"
+                android:text="@string/_8824408362"
+                android:textSize="16sp" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/rewardsImage"
+                android:layout_width="@dimen/m50"
+                android:layout_height="@dimen/m40"
+                android:layout_below="@+id/number"
+                android:layout_marginTop="@dimen/m100"
+                android:contentDescription="@string/qr_code"
+                android:scaleType="fitXY"
+                android:src="@drawable/rewards"
+                app:shapeAppearance="@style/CircleShape" />
+
+            <TextView
+                android:id="@+id/Rewards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/first_cird"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginTop="@dimen/m90"
+                android:layout_toRightOf="@+id/rewardsImage"
+                android:text="@string/_252_rewards_earned"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/first_cird"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upi"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="@dimen/m15"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toLeftOf="@+id/profile_image"
+                android:layout_toRightOf="@+id/number"
+                android:backgroundTint="#E7F4FC"
+                app:cardCornerRadius="@dimen/m15"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/m8">
+
+                    <!-- Left Icon -->
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="@dimen/m20"
+                        android:layout_height="@dimen/m20"
+                        android:layout_marginEnd="16dp"
+                        android:paddingStart="@dimen/m5"
+                        android:src="@drawable/check_circle" />
+
+                    <!-- Right Text -->
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/upi_number"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_10" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/card_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="174dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/second_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/m15"
+                        android:elevation="@dimen/m15"
+                        app:cardCornerRadius="@dimen/m15">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp">
+
+                            <!-- Header Section -->
+                            <RelativeLayout
+                                android:id="@+id/header_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="8dp">
+
+                                <com.smartpay.view.BoldTextView
+                                    android:id="@+id/tv_heading"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/set_up_payment"
+                                    android:textSize="@dimen/text_16"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:id="@+id/iv_arrow_icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/arrow_forward" />
+                            </RelativeLayout>
+
+                            <!-- Payment Methods Section -->
+                            <LinearLayout
+                                android:id="@+id/payment_methods_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/header_section"
+                                android:layout_marginTop="@dimen/m15"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingVertical="8dp">
+
+                                <!-- Bank Account Section -->
+                                <LinearLayout
+                                    android:id="@+id/bank_account_section"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/bank_account_icon"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/account_balance" />
+
+                                    <TextView
+                                        android:id="@+id/bank_account_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/m15"
+                                        android:gravity="center"
+                                        android:text="Bank Account"
+                                        android:textSize="@dimen/text_12" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="@string/_1_account"
+                                        android:textColor="@color/gray2"
+                                        android:textSize="@dimen/text_11" />
+                                </LinearLayout>
+
+                                <!-- RuPay Credit Section -->
+                                <LinearLayout
+                                    android:id="@+id/rupay_credit_section"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <!--                    <ImageView-->
+                                    <!--                        android:id="@+id/rupay_credit_icon"-->
+                                    <!--                        android:layout_width="40dp"-->
+                                    <!--                        android:layout_height="40dp"-->
+                                    <!--                        android:background="@drawable/dotted_circle"-->
+                                    <!--                        android:src="@drawable/credit_card" />-->
+
+
+                                    <ImageView
+                                        android:id="@+id/rupay_credit_icon"
+                                        android:layout_width="@dimen/m50"
+                                        android:layout_height="@dimen/m50"
+                                        android:background="@drawable/dotted_circle"
+                                        android:padding="@dimen/m10"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/credit_card" />
+
+
+                                    <TextView
+                                        android:id="@+id/rupay_credit_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:paddingTop="@dimen/m20"
+                                        android:text="RuPay Credit\nCard"
+                                        android:textSize="@dimen/text_12" />
+
+                                    <TextView
+                                        android:id="@+id/pay_with_upi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="@string/pay_with_upi"
+                                        android:textColor="@color/gray2"
+                                        android:textSize="@dimen/text_11" />
+                                </LinearLayout>
+
+                                <!-- UPI Lite Section -->
+                                <LinearLayout
+                                    android:id="@+id/upi_lite_section"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/upi_lite_icon"
+                                        android:layout_width="@dimen/m50"
+                                        android:layout_height="@dimen/m50"
+                                        android:background="@drawable/dotted_circle"
+                                        android:padding="@dimen/m10"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/upi_lite" />
+
+                                    <TextView
+                                        android:id="@+id/upi_lite_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:gravity="center"
+                                        android:text="UPI Lite"
+                                        android:textSize="@dimen/text_12" />
+
+                                    <TextView
+                                        android:id="@+id/pay_pin_free"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="@string/pay_pin_free"
+                                        android:textColor="@color/gray2"
+                                        android:textSize="@dimen/text_11" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/paymentWays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_view2"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:id="@+id/pay_with_credit_or_debit_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageIcon"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m15"
+                    android:src="@drawable/payments"
+                    app:tint="@color/blue"/>
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m18"
+                    android:layout_toRightOf="@+id/imageIcon"
+                    android:text="@string/pay_with_credit_or_debit_card"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+                <TextView
+                    android:id="@+id/imageSubText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageText"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_toRightOf="@+id/imageIcon"
+                    android:text="@string/pay_with_credit_or_debit_card"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/text_12" />
+
+                <TextView
+                    android:id="@+id/rightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/m30"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:text="Add"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/your_or_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pay_with_credit_or_debit_card">
+
+                <ImageView
+                    android:id="@+id/imageIcon2"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m15"
+                    android:src="@drawable/qr_code"
+                    app:tint="@color/blue"/>
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m18"
+                    android:layout_toRightOf="@+id/imageIcon2"
+                    android:text="@string/your_or_code"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+                <TextView
+                    android:id="@+id/imageSubText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageText2"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_toRightOf="@+id/imageIcon2"
+                    android:text="@string/use_to_receive_money"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/text_12" />
+            </RelativeLayout>
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/invite_friends_get_rewards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/your_or_code">
+
+                <ImageView
+                    android:id="@+id/imageIcon3"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m15"
+                    android:src="@drawable/diversity"
+                    app:tint="@color/blue"/>
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m18"
+                    android:layout_toRightOf="@+id/imageIcon3"
+                    android:text="@string/invite_friends_get_rewards"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+                <TextView
+                    android:id="@+id/imageSubText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageText3"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_toRightOf="@+id/imageIcon3"
+                    android:text="Share your code 8m3lv86"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/text_12" />
+
+                <TextView
+                    android:id="@+id/code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageText3"
+                    android:layout_marginStart="@dimen/m5"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_toRightOf="@+id/imageSubText3"
+                    android:text="@string/_8m3lv86"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_12"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageText3"
+                    android:layout_marginStart="@dimen/m5"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_toRightOf="@+id/code"
+                    android:src="@drawable/copy"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/rightText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/m30"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:text="Share"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/autopay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/invite_friends_get_rewards">
+
+                <ImageView
+                    android:id="@+id/imageIcon4"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                    android:src="@drawable/auto"
+                    app:tint="@color/blue"/>
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m10"
+                    android:layout_toRightOf="@+id/imageIcon4"
+                    android:text="@string/autopay"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+                <TextView
+                    android:id="@+id/imageSubText4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageText4"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_toRightOf="@+id/imageIcon4"
+                    android:text="@string/no_pending_requests"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/text_12" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/autopay">
+
+                <ImageView
+                    android:id="@+id/imageIcon5"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                   android:layout_marginTop="@dimen/m7"
+                    android:src="@drawable/settings"
+                    app:tint="@color/blue"/>
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m10"
+                    android:layout_toRightOf="@+id/imageIcon5"
+                    android:text="@string/setting"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/manage_google_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/setting">
+
+                <ImageView
+                    android:id="@+id/imageIcon6"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m15"
+                    android:src="@drawable/account"
+                    app:tint="@color/blue"/>
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m18"
+                    android:layout_toRightOf="@+id/imageIcon6"
+                    android:text="@string/manage_google_account"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/get_help"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/manage_google_account">
+
+                <ImageView
+                    android:id="@+id/imageIcon7"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m15"
+                    android:src="@drawable/help_outline"
+                    app:tint="@color/blue"/>
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m18"
+                    android:layout_toRightOf="@+id/imageIcon7"
+                    android:text="@string/get_help"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/get_help">
+
+                <ImageView
+                    android:id="@+id/imageIcon8"
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m15"
+                    android:src="@drawable/language"
+                    app:tint="@color/blue" />
+
+                <com.smartpay.view.BoldTextView
+                    android:id="@+id/imageText8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m18"
+                    android:layout_toRightOf="@+id/imageIcon8"
+                    android:text="@string/language"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14" />
+
+                <TextView
+                    android:id="@+id/imageSubText8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageText8"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_toRightOf="@+id/imageIcon8"
+                    android:text="@string/english"
+                    android:textColor="@color/gray2"
+                    android:textSize="@dimen/text_12" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

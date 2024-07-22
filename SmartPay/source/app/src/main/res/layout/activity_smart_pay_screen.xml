@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/m10"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.SmartPayScreen">
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/subMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backgroundImageView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m250"
+                android:layout_marginTop="@dimen/m50"
+                android:scaleType="fitXY"
+                android:src="@drawable/background" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginTop="@dimen/m10"
+            android:layout_marginEnd="@dimen/m50"
+            android:layout_marginBottom="@dimen/m10">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/searchCardView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m50"
+                android:layout_margin="@dimen/m20"
+                android:backgroundTint="@color/gray"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m25">
+
+                <RelativeLayout
+                    android:id="@+id/searchContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/searchIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="8dp"
+                        android:src="@android:drawable/ic_menu_search"
+                        app:tint="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/searchEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/searchIcon"
+                        android:background="@color/gray"
+                        android:hint="Search"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:padding="8dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:focusable="false"
+                        android:clickable="false" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/m40"
+                android:layout_marginEnd="@dimen/m20"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/payment_first_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subMain">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <!-- QR Code Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/qrCodeImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/qr_code"
+                        android:src="@drawable/qr_code" />
+
+                    <TextView
+                        android:id="@+id/qrCodeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/scan_any_nqr_code"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <!-- Pay Contacts Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/payContactsImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/pay_contacts"
+                        android:src="@drawable/payments" />
+
+                    <TextView
+                        android:id="@+id/payContactsLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/pay_n_contacts"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <!-- Pay Phone Number Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/payPhoneNumberImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/dis_pay_phone_number"
+                        android:src="@drawable/phonelink_ring" />
+
+                    <TextView
+                        android:id="@+id/payPhoneNumberLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/pay_phone_number"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <!-- Bank Transfer Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/bankTransferImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/bank_transfer"
+                        android:src="@drawable/account_balance" />
+
+                    <TextView
+                        android:id="@+id/bankTransferLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/bank_transfer"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/payment_second_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/payment_first_row">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <!-- QR Code Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/upiNumberImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/pay_upi_id_nor_number"
+                        android:src="@drawable/upi_number" />
+
+                    <TextView
+                        android:id="@+id/upiNumberLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/pay_upi_id_nor_number"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <!-- Pay Contacts Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/selfTransferImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/self_ntransfer"
+                        android:src="@drawable/self_transfer" />
+
+                    <TextView
+                        android:id="@+id/selfTransferlabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/self_ntransfer"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <!-- Pay Phone Number Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/payBillsImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/pay_nbills"
+                        android:src="@drawable/pay_bills" />
+
+                    <TextView
+                        android:id="@+id/payBills"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/pay_nbills"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <!-- Bank Transfer Item -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/moblieRechargeImage"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:contentDescription="@string/moblie_recharge"
+                        android:src="@drawable/moblie_recharge" />
+
+                    <TextView
+                        android:id="@+id/moblieRecharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/moblie_recharge"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/upi_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/payment_second_row"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Activate UPI Lite Button -->
+
+                <!-- Email CardView -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_dotted_border"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/m5">
+
+                    <TextView
+                        android:id="@+id/activateUpiLiteButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activate UPI Lite"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_12" />
+
+                    <ImageView
+                        android:id="@+id/plusIcon"
+                        android:layout_width="@dimen/m24"
+                        android:layout_height="@dimen/m24"
+                        android:layout_marginStart="@dimen/m8"
+                        android:contentDescription="Plus Icon"
+                        android:src="@drawable/circle_outline" />
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text_16"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/gray"
+                    android:elevation="@dimen/m10"
+                    android:padding="@dimen/m8"
+                    app:cardCornerRadius="@dimen/m15">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/upiIdText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/m8"
+                            android:text="@string/upi_id"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_12" />
+
+                        <TextView
+                            android:id="@+id/emailText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/upiIdText"
+                            android:maxLength="18"
+                            android:paddingTop="@dimen/m8"
+                            android:paddingBottom="@dimen/m8"
+                            android:text="@string/gmail"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_11" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/peopleRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upi_card_view">
+
+            <com.smartpay.view.RegularTextView
+                android:id="@+id/people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@string/people"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20" />
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    tools:listitem="@layout/activity_user_item" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/businessesView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/peopleRecyclerView">
+
+            <com.smartpay.view.RegularTextView
+                android:id="@+id/businesses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@string/businesses"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20" />
+
+            <com.smartpay.view.LightTextView
+                android:id="@+id/explore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_toLeftOf="@+id/right_arrow"
+                android:text="@string/explore"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16" />
+
+            <ImageView
+                android:id="@+id/right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:src="@drawable/right_arrow" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    tools:listitem="@layout/businesses" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/businessesView">
+
+            <com.smartpay.view.RegularTextView
+                android:id="@+id/bills_recharge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@string/bills_recharge"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bills_recharge"
+                android:layout_marginTop="@dimen/m10">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="@dimen/m60"
+                    android:layout_height="@dimen/m60"
+                    android:layout_marginStart="@dimen/m25"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/pehd"
+                    app:shapeAppearance="@style/CircleShape" />
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/m5"
+                    android:layout_toRightOf="@+id/userImage"
+                    android:text="@string/rajasthan_phed"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_11"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button_pay"
+                    android:layout_width="@dimen/m110"
+                    android:layout_height="@dimen/m40"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m20"
+                    android:background="@drawable/button_background"
+                    android:text="Pay 206"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/try_adding_theseView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bills"
+            android:layout_marginTop="@dimen/m10">
+
+            <TextView
+                android:id="@+id/try_adding_these"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m15"
+                android:layout_marginBottom="@dimen/m10"
+                android:text="@string/try_adding_these"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_13"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/try_adding_these"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginEnd="@dimen/m15"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <!-- First item -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/qr1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/image_circle_shape"
+                        android:padding="@dimen/m15"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/moblie_recharge"
+                        app:tint="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/text_qr1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/qr1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/m5"
+                        android:text="@string/moblie_recharge"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_12"
+                         />
+                </RelativeLayout>
+
+                <!-- Second item -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/qr2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/image_circle_shape"
+                        android:padding="@dimen/m15"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tv"
+                        app:tint="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/text_qr2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/qr2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/m5"
+                        android:text="@string/dth_cable_ntv"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_12"
+                         />
+                </RelativeLayout>
+
+                <!-- Third item -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/qr3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/image_circle_shape"
+                        android:padding="@dimen/m15"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/lightbulb"
+                        app:tint="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/text_qr3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/qr3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/m5"
+                        android:text="@string/electricity"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_12"
+                         />
+                </RelativeLayout>
+
+                <!-- Fourth item -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/qr4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/image_circle_shape"
+                        android:padding="@dimen/m15"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/car_wash"
+                        app:tint="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/text_qr4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/qr4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/m5"
+                        android:text="@string/fastag_recharge"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_12"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/offers_rewardsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/try_adding_theseView"
+            android:layout_marginTop="@dimen/m10">
+
+            <com.smartpay.view.RegularTextView
+                android:id="@+id/offers_rewards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@string/offers_rewards"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/offers_rewards"
+                android:layout_marginStart="@dimen/m15">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/rewardsImage"
+                            android:layout_width="@dimen/m60"
+                            android:layout_height="@dimen/m60"
+                            android:contentDescription="@string/qr_code"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/rewards"
+                            app:shapeAppearance="@style/CircleShape"/>
+
+
+
+                        <TextView
+                            android:id="@+id/rewardsLable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/rewards"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_11" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/offersImage"
+                            android:layout_width="@dimen/m60"
+                            android:layout_height="@dimen/m60"
+                            android:contentDescription="@string/qr_code"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/offers"
+                            app:shapeAppearance="@style/CircleShape"/>
+
+                        <TextView
+                            android:id="@+id/offersLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/offers"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_11" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/referralsImage"
+                            android:layout_width="@dimen/m60"
+                            android:layout_height="@dimen/m60"
+                            android:contentDescription="@string/qr_code"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/referrals"
+                            app:shapeAppearance="@style/CircleShape"/>
+
+                        <TextView
+                            android:id="@+id/referralsLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/referrals"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_11" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/payment_third_four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/offers_rewardsView"
+            android:layout_marginTop="@dimen/m10">
+
+            <com.smartpay.view.RegularTextView
+                android:id="@+id/manage_your_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@string/manage_your_money"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_20" />
+
+            <RelativeLayout
+                android:id="@+id/cibli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/manage_your_money"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginTop="@dimen/m10">
+
+                <ImageView
+                    android:id="@+id/speed"
+                    android:layout_width="@dimen/m30"
+                    android:layout_height="@dimen/m30"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/speed" />
+
+                <com.smartpay.view.LightTextView
+                    android:id="@+id/check_your_cibli"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/m10"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/speed"
+                    android:text="@string/check_your_cibli"
+                    android:textSize="@dimen/text_16" />
+
+                <ImageView
+                    android:id="@+id/right_arrow2"
+                    android:layout_width="@dimen/m30"
+                    android:layout_height="@dimen/m30"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/right_arrow"
+                    app:tint="@color/gray2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@id/transation_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cibli"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginTop="@dimen/m15">
+
+                <ImageView
+                    android:id="@+id/transation"
+                    android:layout_width="@dimen/m30"
+                    android:layout_height="@dimen/m30"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/transation" />
+
+                <com.smartpay.view.LightTextView
+                    android:id="@+id/see_transation_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/m10"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/transation"
+                    android:text="@string/see_transation_history"
+                    android:textSize="@dimen/text_16" />
+
+                <ImageView
+                    android:id="@+id/right_arrow3"
+                    android:layout_width="@dimen/m30"
+                    android:layout_height="@dimen/m30"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/right_arrow"
+                    app:tint="@color/gray2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/transation_history"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginTop="@dimen/m15">
+
+                <ImageView
+                    android:id="@+id/account_balance"
+                    android:layout_width="@dimen/m30"
+                    android:layout_height="@dimen/m30"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/account_balance" />
+
+                <com.smartpay.view.LightTextView
+                    android:id="@+id/check_bank_balance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/m10"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/account_balance"
+                    android:text="@string/check_bank_balance"
+                    android:textSize="@dimen/text_16" />
+
+                <ImageView
+                    android:id="@+id/right_arrow4"
+                    android:layout_width="@dimen/m30"
+                    android:layout_height="@dimen/m30"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/right_arrow"
+                    app:tint="@color/gray2" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m15"
+            android:layout_below="@+id/payment_third_four"
+            android:layout_marginTop="@dimen/m15">
+
+            <com.smartpay.view.LightTextView
+                android:id="@+id/invite_friends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:textColor="@color/black"
+                android:text="@string/invite_friends"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:id="@+id/Invite_friend_subtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/invite_friends"
+                android:layout_marginStart="@dimen/m10"
+                android:text="@string/Invite_friend_subtext"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_12" />
+
+            <Button
+                android:id="@+id/invite"
+                android:layout_width="@dimen/m110"
+                android:layout_height="@dimen/m40"
+                android:layout_below="@+id/Invite_friend_subtext"
+                android:layout_marginTop="@dimen/m15"
+                android:background="@drawable/button_background"
+                android:text="@string/invite"
+                android:layout_marginStart="@dimen/m20"
+                android:textColor="@color/blue"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:id="@+id/bottomImg"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/m160"
+                android:layout_below="@+id/invite"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/m15"
+                android:scaleType="fitXY"
+                android:src="@drawable/nav_img" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
